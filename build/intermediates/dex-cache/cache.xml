@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/rmaninfinity/Documents/Codes/RecyclerView/Medicart/app/build/intermediates/exploded-aar/com.github.dmytrodanylyk.circular-progress-button/library/1.1.3/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8a6ed980c74ad35b2dfc4e1daf97bfc0eea5d7c9">
+        <dex dex="/home/rmaninfinity/Documents/Codes/RecyclerView/Medicart/app/build/intermediates/pre-dexed/debug/classes-ca150288b8a4fc1d4f8b2387d2aac319c8b40c10.jar" />
+    </item>
+
+</items>
