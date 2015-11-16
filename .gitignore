@@ -25,6 +25,7 @@ proguard/
 *.log
 
 #idea/studio
+.idea/
 .idea
 *.iml
 .DS_Store
