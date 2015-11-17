@@ -9,14 +9,46 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main" tools:context=".MainActivity">
 
+    <android.support.percent.PercentRelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/item"
+            app:layout_widthPercent="60%"
+            android:layout_height="50dp"
+            android:hint="Medicine name"
+            app:layout_marginLeftPercent="0%"/>
+        <Spinner
+            android:layout_toRightOf="@+id/item"
+            android:id="@+id/qty"
+            app:layout_widthPercent="20%"
+            android:layout_height="50dp"
+            app:layout_marginLeftPercent="0%"
+
+            />
+        <Button
+            android:layout_toRightOf="@+id/qty"
+            app:layout_widthPercent="20%"
+            android:layout_height="50dp"
+            app:layout_marginLeftPercent="0%"
+            android:text="Add"
+            />
+
+    </android.support.percent.PercentRelativeLayout>
+
     <TextView
         android:id="@+id/tv1"
+        android:visibility="gone"
         android:text="Hello World!" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <com.dd.CircularProgressButton
         android:id="@+id/btnWithText"
-        android:layout_width="196dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginTop="16dp"
         android:textColor="#ffffff"
