@@ -16,6 +16,7 @@
         android:layout_height="match_parent">
 
         <EditText
+            android:fontFamily="sans-serif"
             android:id="@+id/item"
             app:layout_widthPercent="60%"
             android:layout_height="50dp"
