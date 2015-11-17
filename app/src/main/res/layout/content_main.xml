@@ -56,4 +56,5 @@
         app:cpb_textComplete="@string/Complete"
         app:cpb_textError="@string/Error"
         app:cpb_textIdle="@string/Upload" />
+
 </RelativeLayout>
