@@ -3,12 +3,12 @@ package com.appslasherstudio.medicart;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.dd.CircularProgressButton;
@@ -20,6 +20,8 @@ import com.firebase.client.ValueEventListener;
 public class OrderActivity extends AppCompatActivity {
 
     TextView tv1;
+    Spinner qtySpn;
+
     Firebase myFirebaseRef;
     CircularProgressButton btnTest;
     @Override
@@ -30,6 +32,7 @@ public class OrderActivity extends AppCompatActivity {
         Intent intent = this.getIntent();
         String userId = intent.getExtras().getString("userId").toString();
         tv1 = (TextView)findViewById(R.id.tv1);
+        qtySpn = (Spinner) findViewById(R.id.qtySpn);
         btnTest = (CircularProgressButton) findViewById(R.id.btnWithText);
         myFirebaseRef = new Firebase("https://medicart.firebaseio.com/");
         myFirebaseRef.child("message2").setValue("Test Message");

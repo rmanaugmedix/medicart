@@ -16,22 +16,30 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:fontFamily="sans-serif"
-            android:id="@+id/item"
-            app:layout_widthPercent="60%"
+            android:id="@+id/itemName"
+            app:layout_widthPercent="45%"
             android:layout_height="50dp"
             android:hint="Medicine name"
+            android:textSize="14dp"
             app:layout_marginLeftPercent="0%"/>
         <Spinner
-            android:layout_toRightOf="@+id/item"
-            android:id="@+id/qty"
+            android:layout_toRightOf="@+id/itemName"
+            android:id="@+id/qtySpn"
+            app:layout_widthPercent="15%"
+            android:layout_height="50dp"
+            android:entries="@array/qry_array"
+            app:layout_marginLeftPercent="0%"
+            />
+        <Spinner
+            android:layout_toRightOf="@+id/qtySpn"
+            android:id="@+id/unitSpn"
             app:layout_widthPercent="20%"
             android:layout_height="50dp"
+            android:entries="@array/unit_array"
             app:layout_marginLeftPercent="0%"
-
             />
         <Button
-            android:layout_toRightOf="@+id/qty"
+            android:layout_toRightOf="@+id/unitSpn"
             app:layout_widthPercent="20%"
             android:layout_height="50dp"
             app:layout_marginLeftPercent="0%"
