@@ -28,7 +28,7 @@ public class OrderActivity extends AppCompatActivity {
 
     TextView tv1;
     EditText etItem;
-    Spinner qtySpn;
+    Spinner qtySpn, unitSpn;
     private List<Item> item;
     Firebase myFirebaseRef;
     RecyclerView rv;
@@ -44,6 +44,7 @@ public class OrderActivity extends AppCompatActivity {
         tv1 = (TextView)findViewById(R.id.tv1);
         etItem = (EditText) findViewById(R.id.itemName);
         qtySpn = (Spinner) findViewById(R.id.qtySpn);
+        unitSpn = (Spinner) findViewById(R.id.unitSpn);
         btnTest = (CircularProgressButton) findViewById(R.id.btnWithText);
         addBtn = (Button) findViewById(R.id.btnAdd);
         myFirebaseRef = new Firebase("https://medicart.firebaseio.com/");
@@ -53,8 +54,10 @@ public class OrderActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                item.add(new Item(etItem.getText().toString(), " ", R.mipmap.ic_launcher));
+                item.add(new Item(etItem.getText().toString(),qtySpn.getSelectedItem().toString()+ " " + unitSpn.getSelectedItem().toString(), R.mipmap.ic_launcher));
 
+                RVAdapter adapter = new RVAdapter(item);
+                rv.setAdapter(adapter);
             }
         });
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -69,8 +72,6 @@ public class OrderActivity extends AppCompatActivity {
 // you want to use the same images.
 
         initializeData();
-        RVAdapter adapter = new RVAdapter(item);
-        rv.setAdapter(adapter);
 
         tv1.setText(userId);
 
