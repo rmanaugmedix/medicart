@@ -126,5 +126,10 @@ public class OrderActivity extends AppCompatActivity {
         item.add(new Item("Emma Wilson", "23 years old", R.mipmap.ic_launcher));
         item.add(new Item("Lavery Maiss", "25 years old", R.mipmap.ic_launcher));
         item.add(new Item("Lillie Watts", "35 years old", R.mipmap.ic_launcher));
+        item.add(new Item("Mohammad Arman", "25 years old", R.mipmap.ic_launcher));
+        item.add(new Item("Mark Rones", "60 years old", R.mipmap.ic_launcher));
+        item.add(new Item("Alex Tam", "35 years old", R.mipmap.ic_launcher));
+        item.add(new Item("Jerry Gordinier", "35 years old", R.mipmap.ic_launcher));
+        item.add(new Item("Emma Watson", "55 years old", R.mipmap.ic_launcher));
     }
 }

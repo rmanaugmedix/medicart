@@ -43,7 +43,10 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ref.authWithPassword(emailEt.getText().toString(), passwordEt.getText().toString(), authResultHandler);
+                //ref.authWithPassword(emailEt.getText().toString(), passwordEt.getText().toString(), authResultHandler);
+                Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                intent.putExtra("userId", "arman");
+                startActivity(intent);
             }
         });
     }
