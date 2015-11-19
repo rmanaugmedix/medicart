@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
@@ -17,12 +19,16 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class OrderActivity extends AppCompatActivity {
 
     TextView tv1;
     Spinner qtySpn;
-
+    private List<Item> item;
     Firebase myFirebaseRef;
+    RecyclerView rv;
     CircularProgressButton btnTest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +42,22 @@ public class OrderActivity extends AppCompatActivity {
         btnTest = (CircularProgressButton) findViewById(R.id.btnWithText);
         myFirebaseRef = new Firebase("https://medicart.firebaseio.com/");
         myFirebaseRef.child("message2").setValue("Test Message");
+        rv = (RecyclerView) findViewById(R.id.rv);
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rv.setLayoutManager(llm);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        // This method creates an ArrayList that has three Person objects
+// Checkout the project associated with this tutorial on Github if
+// you want to use the same images.
+
+        initializeData();
+        RVAdapter adapter = new RVAdapter(item);
+        rv.setAdapter(adapter);
 
         tv1.setText(userId);
 
@@ -99,5 +119,12 @@ public class OrderActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void initializeData() {
+        item = new ArrayList<>();
+        item.add(new Item("Emma Wilson", "23 years old", R.mipmap.ic_launcher));
+        item.add(new Item("Lavery Maiss", "25 years old", R.mipmap.ic_launcher));
+        item.add(new Item("Lillie Watts", "35 years old", R.mipmap.ic_launcher));
     }
 }
