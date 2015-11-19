@@ -28,13 +28,15 @@
             android:id="@+id/qtySpn"
             app:layout_widthPercent="15%"
             android:layout_height="50dp"
+            android:prompt="@string/qty"
             android:entries="@array/qry_array"
             app:layout_marginLeftPercent="0%"
             />
         <Spinner
             android:layout_toRightOf="@+id/qtySpn"
             android:id="@+id/unitSpn"
-            app:layout_widthPercent="25%"
+            android:prompt="@string/unit"
+            app:layout_widthPercent="30%"
             android:layout_height="50dp"
             android:entries="@array/unit_array"
             app:layout_marginLeftPercent="0%"
@@ -42,10 +44,12 @@
         <Button
             android:id="@+id/btnAdd"
             android:layout_toRightOf="@+id/unitSpn"
-            app:layout_widthPercent="20%"
+            app:layout_widthPercent="15%"
             android:layout_height="50dp"
             app:layout_marginLeftPercent="0%"
-            android:text="Add"
+            android:background="#0cd677"
+            android:textColor="#ffffff"
+            android:text="+"
             />
 
     </android.support.percent.PercentRelativeLayout>

@@ -3,6 +3,7 @@ package com.appslasherstudio.medicart;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -54,10 +55,15 @@ public class OrderActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                item.add(new Item(etItem.getText().toString(),qtySpn.getSelectedItem().toString()+ " " + unitSpn.getSelectedItem().toString(), R.mipmap.ic_launcher));
+                if(!etItem.getText().toString().isEmpty()) {
+                    item.add(new Item(etItem.getText().toString(), qtySpn.getSelectedItem().toString() + " " + unitSpn.getSelectedItem().toString(), R.mipmap.ic_launcher));
 
-                RVAdapter adapter = new RVAdapter(item);
-                rv.setAdapter(adapter);
+                    RVAdapter adapter = new RVAdapter(item);
+                    rv.setAdapter(adapter);
+                }
+                else {
+                    Snackbar.make(v, "Please type a medicine name", Snackbar.LENGTH_LONG).setAction("Action",null).show();
+                }
             }
         });
         LinearLayoutManager llm = new LinearLayoutManager(this);
