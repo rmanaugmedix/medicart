@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -25,11 +27,13 @@ import java.util.List;
 public class OrderActivity extends AppCompatActivity {
 
     TextView tv1;
+    EditText etItem;
     Spinner qtySpn;
     private List<Item> item;
     Firebase myFirebaseRef;
     RecyclerView rv;
     CircularProgressButton btnTest;
+    Button addBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +42,21 @@ public class OrderActivity extends AppCompatActivity {
         Intent intent = this.getIntent();
         String userId = intent.getExtras().getString("userId").toString();
         tv1 = (TextView)findViewById(R.id.tv1);
+        etItem = (EditText) findViewById(R.id.itemName);
         qtySpn = (Spinner) findViewById(R.id.qtySpn);
         btnTest = (CircularProgressButton) findViewById(R.id.btnWithText);
+        addBtn = (Button) findViewById(R.id.btnAdd);
         myFirebaseRef = new Firebase("https://medicart.firebaseio.com/");
         myFirebaseRef.child("message2").setValue("Test Message");
         rv = (RecyclerView) findViewById(R.id.rv);
 
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                item.add(new Item(etItem.getText().toString(), " ", R.mipmap.ic_launcher));
+
+            }
+        });
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
 
@@ -123,13 +136,13 @@ public class OrderActivity extends AppCompatActivity {
 
     private void initializeData() {
         item = new ArrayList<>();
-        item.add(new Item("Emma Wilson", "23 years old", R.mipmap.ic_launcher));
+        /*item.add(new Item("Emma Wilson", "23 years old", R.mipmap.ic_launcher));
         item.add(new Item("Lavery Maiss", "25 years old", R.mipmap.ic_launcher));
         item.add(new Item("Lillie Watts", "35 years old", R.mipmap.ic_launcher));
         item.add(new Item("Mohammad Arman", "25 years old", R.mipmap.ic_launcher));
         item.add(new Item("Mark Rones", "60 years old", R.mipmap.ic_launcher));
         item.add(new Item("Alex Tam", "35 years old", R.mipmap.ic_launcher));
         item.add(new Item("Jerry Gordinier", "35 years old", R.mipmap.ic_launcher));
-        item.add(new Item("Emma Watson", "55 years old", R.mipmap.ic_launcher));
+        item.add(new Item("Emma Watson", "55 years old", R.mipmap.ic_launcher));*/
     }
 }
