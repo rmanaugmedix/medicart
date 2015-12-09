@@ -56,7 +56,7 @@ public class OrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!etItem.getText().toString().isEmpty()) {
-                    item.add(new Item(etItem.getText().toString(), qtySpn.getSelectedItem().toString() + " " + unitSpn.getSelectedItem().toString(), R.mipmap.ic_launcher));
+                    item.add(new Item(etItem.getText().toString(), qtySpn.getSelectedItem().toString() + " " + unitSpn.getSelectedItem().toString(), R.mipmap.ic_honey));
 
                     RVAdapter adapter = new RVAdapter(item);
                     rv.setAdapter(adapter);
